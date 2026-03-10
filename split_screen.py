@@ -2,7 +2,7 @@ import sys
 import json
 from pathlib import Path
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWebEngineCore import QWebEngineSettings, QWebEngineScript, QWebEngineProfile, QWebEnginePage
 from PyQt6.QtCore import QUrl, Qt
@@ -65,7 +65,9 @@ class SplitScreenWindow(QMainWindow):
         central = QWidget()
         self.setCentralWidget(central)
 
-        layout = QHBoxLayout(central)
+        screen = QApplication.primaryScreen().geometry()
+        portrait = screen.height() > screen.width()
+        layout = QVBoxLayout(central) if portrait else QHBoxLayout(central)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(0)
 
