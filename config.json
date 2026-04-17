@@ -1,4 +1,6 @@
 {
-  "left_url": "https://framery.com",
-  "right_url": "http://localhost:8888"
+  "left_url": "https://backman.io",
+  "right_url": "http://slut.band",
+  "auto_reload_interval": 60,
+  "max_reload_attempts": 3
 }
